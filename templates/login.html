@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% extends 'base.html' %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="card-switch">
+        <label class="switch">
+            <input type="checkbox" class="toggle">
+            <span class="slider"></span>
+            <span class="card-side"></span>
+            <div class="flip-card__inner">
+                <!-- LOGIN FORM -->
+                <div class="flip-card__front">
+                    <div class="title">Log in</div>
+                    <form class="flip-card__form" method="POST" action="{{ url_for('login') }}">
+                        <input class="flip-card__input" name="username" placeholder="Username" type="text" required>
+                        <input class="flip-card__input" name="password" placeholder="Password" type="password" required>
+                        <button class="flip-card__btn" type="submit">Let's go!</button>
+                    </form>
+                </div>
+                <!-- REGISTER FORM -->
+                <div class="flip-card__back">
+                    <div class="title">Sign up</div>
+                    <form class="flip-card__form" method="POST" action="{{ url_for('register') }}">
+                        <input class="flip-card__input" name="username" placeholder="Username" type="text" required>
+                        
+                        <input class="flip-card__input" name="password" placeholder="Password" type="password" required>
+                        <div class="flip-card__role">
+                            <label for="role">Role:</label>
+                            <select id="role" name="role" required>
+                                <option value="regional_head">Regional Head</option>
+                                <option value="inoc_manager">Inoc Manager</option>
+                            </select>
+                        </div>
+                        <button class="flip-card__btn" type="submit">Confirm!</button>
+                    </form>
+                </div>
+            </div>
+        </label>
+    </div>   
+</div>
+{% endblock %}
+</body>
+</html>

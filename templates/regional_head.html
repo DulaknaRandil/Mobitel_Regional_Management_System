@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regional Head Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="regional-head-dashboard">
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <h2>Regional Head Dashboard</h2>
+    <form method="POST" action="/add_schedule">
+        <input type="text" name="date" placeholder="Date (YYYY-MM-DD)" required><br>
+        <input type="text" name="person_in_charge" placeholder="Person In Charge" required><br>
+        
+        <!-- Region Dropdown -->
+        <label for="region" class="text">Region:</label>
+        <br><br>
+        <select name="region" title="Region" required>
+            <option value="Ambalangoda">Ambalangoda</option>
+            <option value="Ampara">Ampara</option>
+            <option value="Anuradhapura">Anuradhapura</option>
+            <option value="Badulla">Badulla</option>
+            <option value="Chilaw">Chilaw</option>
+            <option value="Colombo">Colombo</option>
+            <option value="Dehiwala">Dehiwala</option>
+            <option value="Dehiowita">Dehiowita</option>
+            <option value="Galle">Galle</option>
+            <option value="Gampaha">Gampaha</option>
+            <option value="Hambanthota">Hambanthota</option>
+            <option value="Hakmana">Hakmana</option>
+            <option value="Homagama">Homagama</option>
+            <option value="Jaffna">Jaffna</option>
+            <option value="Kandy">Kandy</option>
+            <option value="Kadawatha">Kadawatha</option>
+            <option value="Kahawaththa">Kahawaththa</option>
+            <option value="Kurunegala">Kurunegala</option>
+            <option value="Matara">Matara</option>
+            <option value="Monaragala">Monaragala</option>
+            <option value="Negombo">Negombo</option>
+            <option value="Pettah">Pettah</option>
+            <option value="Piliyandala">Piliyandala</option>
+            <option value="Polonnaruwa">Polonnaruwa</option>
+            <option value="Rathnapura">Rathnapura</option>
+            <option value="Waskaduwa">Waskaduwa</option>
+            <option value="Power">Power</option>
+            <option value="NPA">NPA</option>
+        </select><br>
+
+        <!-- Telephone Number Field -->
+        <input type="text" name="telephone_number" placeholder="Telephone Number" required><br>
+
+        <button type="submit">Add Schedule</button>
+    </form>
+    <a href="/logout">Logout</a>
+    {% endblock %}
+</body>
+</html>

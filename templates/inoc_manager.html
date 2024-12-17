@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INOC Manager Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="inoc-manager-dashboard">
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <h2>INOC Manager Dashboard</h2>
+
+    <!-- Date Filter Form -->
+    <form method="GET" action="{{ url_for('dashboard') }}">
+        <label for="date">Filter by Date:</label>
+        <input type="date" id="date" name="date" value="{{ request.args.get('date', '') }}">
+        <button type="submit">Filter</button>
+    </form>
+
+    <!-- Schedules Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Person In Charge</th>
+                <th>Region</th>
+                <th>Telephone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for schedule in schedules %}
+            <tr>
+                <td>{{ schedule.date }}</td>
+                <td>{{ schedule.person_in_charge }}</td>
+                <td>{{ schedule.region }}</td>
+                <td>{{ schedule.telephone_number }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4">No schedules found for the selected date.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/logout">Logout</a>
+    {% endblock %}
+</body>
+</html>

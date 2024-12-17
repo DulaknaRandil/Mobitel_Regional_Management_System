@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} SLT Mobitel Dashboard {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/SLTMobitel_Logo.svg/1200px-SLTMobitel_Logo.svg.png" alt="SLT Mobitel Logo" class="logo">
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 SLT Mobitel Pvt Ltd. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
